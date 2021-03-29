@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 
 import br.dev.diego.livraria.modelo.Autor;
 import br.dev.diego.livraria.modelo.Livro;
+import br.dev.diego.livraria.modelo.Usuario;
 
 public class PopulaBanco {
 
@@ -54,6 +55,12 @@ public class PopulaBanco {
 		em.persist(capitaes);
 		em.persist(flor);
 
+		Usuario usuario1 = geraUsuario("Bruno Santos", "Masculino", 22, "bruno@uol.com", "1234");
+		Usuario usuario2 = geraUsuario("Maria Fernanda", "Feminino", 25, "maria@gmail.com", "4321");
+
+		em.persist(usuario1);
+		em.persist(usuario2);
+
 		em.getTransaction().commit();
 		em.close();
 
@@ -73,6 +80,16 @@ public class PopulaBanco {
 		livro.setPreco(preco);
 		livro.adicionaAutor(autor);
 		return livro;
+	}
+
+	private static Usuario geraUsuario(String nome, String sexo, Integer idade, String email, String senha) {
+		Usuario usuario = new Usuario();
+		usuario.setNome(nome);
+		usuario.setSexo(sexo);
+		usuario.setIdade(idade);
+		usuario.setEmail(email);
+		usuario.setSenha(senha);
+		return usuario;
 	}
 
 	private static Calendar parseData(String data) {

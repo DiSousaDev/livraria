@@ -10,7 +10,7 @@
 		
 		<class>br.dev.diego.livraria.modelo.Livro</class>
 		<class>br.dev.diego.livraria.modelo.Autor</class>
-		<class>br.dev.diego.livraria.modelo.Cliente</class>
+		<class>br.dev.diego.livraria.modelo.Usuario</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

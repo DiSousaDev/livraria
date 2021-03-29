@@ -27,6 +27,13 @@
 						<f:ajax event="blur" render="messageNome" />
 					</h:inputText>
 					<h:message for="nome" id="messageNome" />
+					
+					<h:outputLabel value="E-mail:" for="email" />
+					<h:inputText id="email" value="#{autorBean.autor.email}" required="true">
+						<f:passThroughAttribute name="type" value="email"></f:passThroughAttribute>
+					</h:inputText>
+					<h:message for="email" id="messageEmail" />
+					
 					<h:commandButton value="Gravar" action="#{autorBean.gravar}" />
 				</h:panelGrid>
 			</fieldset>

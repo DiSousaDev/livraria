@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Cliente implements Serializable {
+public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -16,6 +16,20 @@ public class Cliente implements Serializable {
 	private String nome;
 	private String sexo;
 	private Integer idade;
+	private String email;
+	private String senha;
+
+	public Usuario() {
+
+	}
+
+	public Usuario(String nome, String sexo, Integer idade, String email, String senha) {
+		this.nome = nome;
+		this.sexo = sexo;
+		this.idade = idade;
+		this.email = email;
+		this.senha = senha;
+	}
 
 	public Integer getId() {
 		return id;
@@ -49,6 +63,22 @@ public class Cliente implements Serializable {
 		this.idade = idade;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -65,7 +95,7 @@ public class Cliente implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cliente other = (Cliente) obj;
+		Usuario other = (Usuario) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
